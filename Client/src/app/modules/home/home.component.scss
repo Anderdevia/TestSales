@@ -1,0 +1,644 @@
+
+.header-title {
+    background-color: black;
+    padding: 1rem;
+    text-align: left;
+
+    h2 {
+        color: rgb(234, 241, 232);
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+}
+
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0px;
+    background-color:black; 
+    border-bottom: 2px solid #ddd; 
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 60px;  
+    height: auto;  
+    margin-right: 35px; 
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    
+    margin-bottom: 30px;
+
+}
+
+#searchInput {
+    width: 50%;
+    padding: 10px;
+    padding-right: 0px; 
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+    margin-right: 15px;
+    border-radius: 0; 
+    
+    padding-left: 0px;
+    padding-bottom: 5px;
+
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    color: #888;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    h2 {
+        color: white;
+        margin: 0;
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
+
+
+.modal-orders {
+    background-color: rgb(185, 31, 11);
+    color: white;
+
+
+}
+
+
+.flex.justify-content-end {
+    margin-top: opx;
+}
+
+
+
+.modal-new-order {
+    background-color: rgb(82, 129, 16);
+    color: white;
+ 
+}
+
+
+.border-card {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px; 
+    background: white; 
+  
+}
+.border-card-modal{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0px;
+}
+
+.text-lg{
+    font-size: 1.525rem !important;
+    margin-left: 12px;
+    padding-bottom: 10px;
+
+}
+
+
+:host ::ng-deep .p-card .p-card-body {
+    padding: 0 !important;
+}
+
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    background: white !important;
+     font-size: 0.625rem !important;
+     color: #959ba3;
+     padding-bottom: 10px;
+     padding-top: 10px;
+}
+:host ::ng-deep .p-element .p-datatable-tbody  {
+   
+    color: #959ba3;
+     font-size: 0.725rem !important;
+}
+
+:host ::ng-deep .p-button .p-button-label  {
+   
+    font-size: 0.825rem !important;
+}
+
+:host ::ng-deep .new-order {
+    text-align: right;
+    padding: 1rem 1rem;
+    
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 0.825rem !important;
+    width: 14%;
+}
+:host ::ng-deep .predi-order {
+   
+    width: 31%;
+}
+
+:host ::ng-deep .view-order {
+    text-align: right;
+    padding: 1rem 1rem;
+    
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 12%;
+
+}
+
+.button-table{
+
+    font-size: 0.825rem !important;
+}
+
+:host ::ng-deep .p-datatable .p-sortable-column.p-highlight {
+    background: #EFF6FF;
+    color: #000000;
+}
+
+:host ::ng-deep .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+    display: inline-block !important;
+    color: #000000;
+}
+
+:host ::ng-deep .p-datatable .p-sortable-column .p-sortable-column-icon {
+    display: none !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr {
+ 
+     color: #3a424d; 
+     font-size: 0.725rem !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+   
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+
+
+
+:host ::ng-deep .p-paginator {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: flex-end !important;
+    align-content: flex-end;
+    padding: 10px !important;
+    font-size: 12px;
+}
+
+:host ::ng-deep .p-paginator .p-dropdown {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-first,
+:host ::ng-deep .p-paginator .p-paginator-last {
+    display: none !important;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-current {
+  
+    color: #3a424d !important;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-prev,
+:host ::ng-deep .p-paginator .p-paginator-next {
+    background: transparent !important;
+    border: none !important;
+    color: black !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+}
+
+
+
+:host ::ng-deep .p-paginator .p-dropdown {
+    
+    border-bottom: 2px solid #0c0b0b !important;
+  
+    border-radius: 0;
+    font-size: 12px !important;
+    padding-right: 25px !important;
+    border-bottom: none !important; 
+}
+
+:host ::ng-deep .p-paginator .p-dropdown .p-dropdown-label{
+    border-bottom: 2px solid #0c0b0b !important; 
+    display: inline-block; 
+    padding-bottom: 4px; 
+    border-radius: 0;
+
+    padding-left: 2px;
+    width: 5%;
+}
+:host ::ng-deep .p-paginator .p-dropdown .p-dropdown-trigger {
+    border-bottom: 2px solid #0c0b0b !important; 
+    display: inline-block; 
+    padding-bottom: 4px; 
+    border-radius: 0;
+    padding-left: 0px;
+    width: 10%;
+
+}
+:host ::ng-deep .p-dropdown .p-dropdown-trigger  {
+    padding-top: 15px !important;
+    padding-left: 3px !important;
+    margin-right: 28px;
+    padding-right: 0px;
+
+
+}
+
+:host ::ng-deep .p-dropdown::before {
+    content: "Rows per page";
+    font-size: 11px;
+    padding-top: 12px !important;
+    padding-right: 25px !important;
+    margin-right: 28px;
+
+}
+
+:host ::ng-deep .p-inputtext {
+    font-size: 12px !important;
+    padding-top: 12px;
+ 
+ 
+
+}
+:host ::ng-deep .p-dropdown-trigger-icon .p-icon{
+
+    padding-top: 5px !important;
+  
+
+}
+
+:host ::ng-deep .p-paginator .p-component{
+
+    padding: 0px !important;
+}
+
+
+::ng-deep .p-paginator {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 12px;
+    border-top: 1px solid #ccc;
+}
+
+::ng-deep .p-paginator .p-paginator-rpp-options {
+    order: -1; 
+    margin-right: auto;
+}
+
+::ng-deep .p-paginator .p-paginator-current {
+    order: 1;
+    font-size: 12px;
+
+}
+
+::ng-deep .p-paginator .p-paginator-prev,
+::ng-deep .p-paginator .p-paginator-next {
+    order: 2;
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+   
+}
+
+::ng-deep .p-paginator .p-paginator-prev:disabled,
+::ng-deep .p-paginator .p-paginator-next:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+::ng-deep .p-paginator .p-paginator-bottom {
+    border: none;
+}
+
+::ng-deep .p-paginator .p-dropdown {
+
+    font-size: 12px;
+}
+
+::ng-deep  .p-component {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+
+:host ::ng-deep .p-dialog-header {
+    padding-top: 17px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+:host ::ng-deep .p-dialog-content {
+    padding-bottom: 20px;
+  
+}
+
+
+:host ::ng-deep .new-order-modal .p-dialog {
+    position: fixed !important;
+    top: 9vh !important;
+    transform: translateY(-25px) !important;
+}
+
+:host ::ng-deep .custom-dropdown .custom-table {
+    position: absolute !important;
+    bottom: 20% !important;  
+    transform: translateY(20px) !important; 
+
+}
+
+:host ::ng-deep .custom-dropdown .p-dropdown {
+    overflow: visible !important;
+}
+
+
+:host ::ng-deep .p-dropdown-panel {
+    position: absolute !important;
+    bottom: 100% !important; 
+    transform: translateY(-30px) translateX(100px) !important;
+    z-index: 1000 !important; 
+    min-width: 60px !important; 
+    max-width: 80px !important;
+}
+
+:host ::ng-deep .p-dropdown {
+    font-size: 12px !important; 
+    height: 40px !important; 
+  
+}
+
+:host ::ng-deep .p-dropdown-item {
+    font-size: 12px !important; 
+    padding: 5px !important; 
+    height: 25px !important;
+    line-height: 25px !important;
+}
+
+:host ::ng-deep .p-dropdown-items {
+    padding: 5px !important; 
+    min-width: 60px !important;
+}
+
+:host ::ng-deep .p-dropdown-item.p-highlight {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+}
+
+
+
+
+
+
+
+:host ::ng-deep .new-order-modal .modal-new-order {
+    background-color: rgb(2 137 5);
+    border-radius: 8px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+    padding: 20px !important;
+    width: 40vw !important;
+    max-width: 600px !important;
+    border-radius: 0;
+}
+
+:host ::ng-deep .new-order-modal .p-dropdown::before {
+    content: "";
+    font-size: 13px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+
+}
+
+:host ::ng-deep .new-order-modal .modal-header {
+  
+    color: white !important;
+    font-size: 18px !important;
+    padding: 15px !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-radius: 0 !important;
+}
+
+:host ::ng-deep .new-order-modal .p-dropdown {
+   
+    
+    padding: 5px !important;
+    font-size: 14px !important;
+    border: none;
+    border-radius: 0;
+}
+
+:host ::ng-deep .new-order-modal .p-inputtext {
+    font-size: 12px !important;
+    padding-top: 14px;
+    border: none;
+    padding-left: 0px;
+    padding-bottom: 5px;
+
+
+}
+:host ::ng-deep .new-order-modal .p-dropdown .p-dropdown-trigger  {
+    padding-top: 15px !important;
+    padding-left: 3px !important;
+    margin-right: 0px;
+ 
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding-right: 0px;
+    border-radius: 0;
+
+}
+
+
+:host ::ng-deep .new-order-modal .p-button-danger {
+  
+    color: rgb(2 137 5) !important;
+    padding-top: 25px;
+    padding-right: 5px;
+
+}
+
+:host ::ng-deep .p-button:hover,
+:host ::ng-deep .p-button:focus,
+:host ::ng-deep .p-button:active {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: inherit; 
+}
+
+:host ::ng-deep .new-order-modal .p-button-success {
+    color: rgb(2 137 5) !important;
+    padding-top: 25px;
+    padding-right: 5px;
+
+}
+
+:host ::ng-deep .new-order-modal .p-button .p-button-label {
+    font-size: 0.625rem !important;
+}
+
+:host ::ng-deep .new-order-modal .p-dropdown .p-element .p-inputwrapper .p-dropdown-label{
+    padding-right: 0px;
+   
+}
+
+:host ::ng-deep .p-element .new-order-modal .p-dropdown .p-dropdown-label {
+    font-size: 14px !important;
+}
+
+:host ::ng-deep .new-order-modal .field {
+    margin-bottom: 10px !important;
+}
+
+
+:host ::ng-deep .new-order-modal .p-inputtext {
+
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    border-radius: 0;
+    
+    padding-left: 0px;
+    box-shadow: none !important;
+    outline: none !important;
+
+}
+
+:host ::ng-deep .new-order-modal .p-divider{
+    margin-top: 5px !important;
+}
+
+:host ::ng-deep .new-order-modal .p-dialog-header{
+    
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 0;
+}
+
+:host ::ng-deep .new-order-modal .p-dialog-content{
+    
+    padding: 0px;
+}
+
+:host ::ng-deep .new-order-modal .p-dialog {
+    position: fixed !important;
+    top: 9vh !important;
+    transform: translateY(-25px) !important;
+}
+
+:host ::ng-deep .new-order-modal .p-dialog {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+}
+
+:host ::ng-deep .new-order-modal .p-dialog-content {
+    overflow-x: hidden !important;
+    white-space: normal !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.custom-calendar {
+    position: relative;
+    width: 100%;
+}
+
+.calendar-container {
+    display: flex;
+    align-items: start;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0px 0px;
+    padding-top: 5px;
+    background: white;
+    width: 100%;
+    border: none;
+}
+
+.calendar-icon {
+    width: 12px; 
+    height: 12px;
+    margin-right: 7px;
+    margin-top: 10px;
+}
+
+.calendar-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+    background: transparent;
+}
+
+
+:host ::ng-deep .new-order-modal .p-inputtext {
+    font-size: 12px !important;
+    padding-top: 10px !important;
+    
+
+}
+
+
+

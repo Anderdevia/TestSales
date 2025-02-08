@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Compile Remove="Behaviors\**" />
+    <Compile Remove="Features\Customers\Commands\**" />
+    <Compile Remove="Features\Customers\Handlers\**" />
+    <Compile Remove="Features\Employees\Commands\**" />
+    <Compile Remove="Features\Employees\Handlers\**" />
+    <Compile Remove="Features\Order\Handlers\**" />
+    <Compile Remove="Features\Products\Commands\**" />
+    <Compile Remove="Features\Products\Handler\**" />
+    <Compile Remove="Features\SalesDatePrediction\Commands\**" />
+    <Compile Remove="Features\SalesDatePrediction\Handler\**" />
+    <Compile Remove="Features\Shippers\Commands\**" />
+    <Compile Remove="Features\Shippers\Handler\**" />
+    <Compile Remove="Mappings\**" />
+    <Compile Remove="Validators\**" />
+    <EmbeddedResource Remove="Behaviors\**" />
+    <EmbeddedResource Remove="Features\Customers\Commands\**" />
+    <EmbeddedResource Remove="Features\Customers\Handlers\**" />
+    <EmbeddedResource Remove="Features\Employees\Commands\**" />
+    <EmbeddedResource Remove="Features\Employees\Handlers\**" />
+    <EmbeddedResource Remove="Features\Order\Handlers\**" />
+    <EmbeddedResource Remove="Features\Products\Commands\**" />
+    <EmbeddedResource Remove="Features\Products\Handler\**" />
+    <EmbeddedResource Remove="Features\SalesDatePrediction\Commands\**" />
+    <EmbeddedResource Remove="Features\SalesDatePrediction\Handler\**" />
+    <EmbeddedResource Remove="Features\Shippers\Commands\**" />
+    <EmbeddedResource Remove="Features\Shippers\Handler\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <EmbeddedResource Remove="Validators\**" />
+    <None Remove="Behaviors\**" />
+    <None Remove="Features\Customers\Commands\**" />
+    <None Remove="Features\Customers\Handlers\**" />
+    <None Remove="Features\Employees\Commands\**" />
+    <None Remove="Features\Employees\Handlers\**" />
+    <None Remove="Features\Order\Handlers\**" />
+    <None Remove="Features\Products\Commands\**" />
+    <None Remove="Features\Products\Handler\**" />
+    <None Remove="Features\SalesDatePrediction\Commands\**" />
+    <None Remove="Features\SalesDatePrediction\Handler\**" />
+    <None Remove="Features\Shippers\Commands\**" />
+    <None Remove="Features\Shippers\Handler\**" />
+    <None Remove="Mappings\**" />
+    <None Remove="Validators\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales_Date_Prediction.Domain\Sales_Date_Prediction.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+</Project>

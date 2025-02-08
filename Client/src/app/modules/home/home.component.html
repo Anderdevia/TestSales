@@ -1,0 +1,238 @@
+<p-toast></p-toast>
+<div>
+    <div class="header-container">
+        <div class="header-title">
+            <h2>Sales Date Prediction App</h2>
+        </div>
+        <div class="logo">
+            <img src="assets/Logo.png" alt="logo Icon" class="logo-icon">
+        </div>
+    </div>
+<div class="border-card">
+
+
+
+
+    <p-card>
+
+        <!-- <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Customer Name" 
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')" />
+            <i class="pi pi-search search-icon"></i>
+        </div> -->
+        
+
+
+
+        <div class="search-container">
+            <div class="font-bold text-lg">Customers</div>
+            <input id="searchInput" type="text" pInputText placeholder="Customer Name"
+                (input)="dt1.filterGlobal($any($event.target).value, 'contains')" />
+                <svg  xmlns="http://www.w3.org/2000/svg" class="position-absolute top-20 translate-middle-y search-icon" width="27" height="27" viewBox="0 0 30 25" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                 </svg>
+        </div>
+
+        <p-table #dt1
+        [value]="salesDatePrediction" 
+        [paginator]="true"  
+        [rows]="5"  
+        [showCurrentPageReport]="true" 
+        [responsiveLayout]="'scroll'" 
+        [rowsPerPageOptions]=" [5, 10, 15]" 
+        currentPageReportTemplate=" {first}-{last} of {totalRecords}" 
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [showFirstLastIcon]="false" 
+        [showPageLinks]="false"
+        [globalFilterFields]="['customerName']"
+        class="custom-table" >
+      
+    <!-- Cabecera de la tabla -->
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="customerName">Customer Name <p-sortIcon field="customerName"></p-sortIcon></th>
+            <th pSortableColumn="lastOrderDate">Last Order Date <p-sortIcon field="lastOrderDate"></p-sortIcon></th>
+            <th pSortableColumn="nextPredictedOrder">Next Predicted Order <p-sortIcon field="nextPredictedOrder"></p-sortIcon></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </ng-template>
+
+    <!-- Cuerpo de la tabla -->
+    <ng-template pTemplate="body" let-item> 
+        <tr>
+            <td>{{ item.customerName }}</td>
+            <td>{{ item.lastOrderDate | date:'M/d/yyyy'}}</td>
+            <td class="predi-order">{{ item.nextPredictedOrder | date:'M/d/yyyy' }}</td>
+            <td class="view-order">
+                <p-button class="button-table" label="VIEW ORDERS" [text]="true" severity="danger" [style]=" {'padding': '0px'}"
+                    (click)="viewOrders(item)"></p-button>
+            </td>
+            <td class="new-order">
+                <p-button label="NEW ORDER" [text]="true" severity="success" [style]="{'padding': '0px 30px 0px 0px'}"
+                    (click)="newOrder(item)"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+
+</p-table>
+   
+    </p-card>
+</div>
+</div>
+
+<!-- Modal: View Orders -->
+<p-dialog [(visible)]="displayModalviewOrders" 
+[style]="{width: '65vw', top: '-15vh'}" 
+[closable]="false" [modal]="true"
+    [draggable]="false" [resizable]="false">
+
+    <div class="border-card-modal">
+
+    <div class="modal-header modal-orders">
+        <h2>{{selectedCustomer}} - Orders</h2>
+    </div>
+    <p-table #dt1 [value]="ordersByCustomer" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+        [responsiveLayout]="'scroll'" [rowsPerPageOptions]="[5, 10, 15]"
+        currentPageReportTemplate="{first}-{last} of {totalRecords}" [tableStyle]="{ 'min-width': '50rem' }"
+        [showFirstLastIcon]="false" [showPageLinks]="false">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="orderid">Order ID <p-sortIcon field="orderid"></p-sortIcon></th>
+                <th pSortableColumn="requireddate">Required Date <p-sortIcon field="requireddate"></p-sortIcon></th>
+                <th pSortableColumn="shippeddate">Shipped Date <p-sortIcon field="shippeddate"></p-sortIcon></th>
+                <th pSortableColumn="shipname">Ship Name<p-sortIcon field="shipname"></p-sortIcon></th>
+                <th pSortableColumn="shipaddress">Ship Address<p-sortIcon field="shipaddress"></p-sortIcon></th>
+                <th pSortableColumn="shipcity">Ship City<p-sortIcon field="shipcity"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-item>
+            <tr>
+                <td>{{ item.orderid }}</td>
+                <td>{{ item.requireddate | date:'MM/dd/yyyy, hh:mm:ss a' }}</td>
+                <td>{{ item.shippeddate | date:'MM/dd/yyyy, hh:mm:ss a' }}</td>
+                <td>{{ item.shipname }}</td>
+                <td>{{ item.shipaddress }}</td>
+                <td>{{ item.shipcity }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div class="flex justify-content-end">
+        <p-button label="CLOSE" [text]="true" severity="danger" (click)="CloseViewOrders()"></p-button>
+    </div>
+</div>
+</p-dialog>
+
+<!-- Modal: New Order -->
+<p-dialog  [(visible)]="displayModalNewOrder" 
+[style]="{width: '35vw', padding: '0px'}" 
+[style]="{width: '35vw', 'max-width': '90vw'}" 
+[style]="{width: '35vw', top: '-15vh'}" 
+[modal]="true" 
+[draggable]="false"
+[resizable]="false" 
+[closable]="false" 
+class="new-order-modal">
+
+    <div class="modal-header modal-new-order">
+        <h2>{{selectedCustomer}} - New Order</h2>
+    </div>
+    <div style="padding-left: 20px; padding-right: 20px;">
+    <div class="font-bold mt-2 col-12" style="font-size: 15px; padding-left: 0px; padding-bottom: 0px;">Order</div>
+
+
+
+    <form [formGroup]="orderForm">
+        <div class="grid mt-2">
+            <div class="field col-6" style="padding-left: 0px;">
+                <p-dropdown formControlName="empid" [options]="employee" optionLabel="employeeName" optionValue="empid"
+                    placeholder="Employee*" [appendTo]="'body'" class="w-full p-fluid" />
+            </div>
+            <div class="field col-6">
+                <p-dropdown formControlName="shipperid"  [options]="shippers" optionLabel="companyname"
+                    optionValue="shipperid" placeholder="Shipper*" [appendTo]="'body'" class="w-full p-fluid" />
+            </div>
+
+            <div class="field col-12">
+                <input id="shipname" type="text" pInputText formControlName="shipname" placeholder="Ship Name*"
+                    class="w-full p-fluid" />
+            </div>
+
+            <div class="field col-4">
+                <input id="shipaddress" type="text" pInputText formControlName="shipaddress" placeholder="Ship Address*"
+                    class="w-full p-fluid" />
+            </div>
+            <div class="field col-4">
+                <input id="shipCity" type="text" pInputText formControlName="shipcity" placeholder="Ship City*"
+                    class="w-full p-fluid" />
+            </div>
+            <div class="field col-4">
+                <input id="shipCountry" type="text" pInputText formControlName="shipcountry" placeholder="Ship Country*"
+                    class="w-full p-fluid" />
+            </div>
+
+
+            <div class="field col-4">
+                <div class="calendar-container">
+                    <img src="assets/fecha.png" alt="Calendar Icon" class="calendar-icon">
+                    <p-calendar formControlName="orderDate" inputId="orderDate" [iconDisplay]="'input'" [showIcon]="false"
+                    [appendTo]="'body'" placeholder="Order Date*" class="w-full p-fluid" />
+                </div>
+            </div>
+            
+
+
+            <div class="field col-4">
+                <div class="calendar-container">
+                    <img src="assets/fecha.png" alt="Calendar Icon" class="calendar-icon">
+                    <p-calendar formControlName="requiredDate" inputId="requiredDate" [iconDisplay]="'input'" [showIcon]="false"
+                    [appendTo]="'body'" placeholder="Required Date*" class="w-full p-fluid" />
+                </div>
+            </div>
+
+
+            <div class="field col-4">
+                <div class="calendar-container">
+                    <img src="assets/fecha.png" alt="Calendar Icon" class="calendar-icon">
+                    <p-calendar formControlName="shippedDate" inputId="shippedDate" [iconDisplay]="'input'" [showIcon]="false"
+                    [appendTo]="'body'" placeholder="Shipped Date*" class="w-full p-fluid" />
+                </div>
+            </div>
+
+         
+
+            <div class="field col-12">
+                <p-inputNumber formControlName="freight" inputId="currency-co" mode="currency" currency="COP"
+                    locale="es-CO" placeholder="$ Freight*" class="w-full p-fluid" />
+            </div>
+
+            <p-divider class="col-12" ></p-divider>
+
+            <div class="col-12 font-bold" style="font-size: 15px; padding-left: 3px;">Order Details</div>
+
+            <div class="field col-12" style="padding-left: 0px;">
+                <p-dropdown formControlName="productid" [options]="product" optionLabel="productname"
+                    optionValue="productid" placeholder="Product*" [appendTo]="'body'" class="w-full p-fluid" />
+            </div>
+
+            <div class="field col-4">
+                <p-inputNumber formControlName="unitPrice" inputId="currency-co" mode="currency" currency="COP"
+                    locale="es-CO" placeholder="$ Unit Price*" class="w-full p-fluid" />
+            </div>
+            <div class="field col-4">
+                <p-inputNumber inputId="qty" formControlName="qty" placeholder="Quantity*" class="w-full p-fluid" />
+            </div>
+            <div class="field col-4">
+                <p-inputNumber [maxFractionDigits]="3" mode="decimal" inputId="discount" formControlName="discount"
+                    prefix="%" placeholder="Discount*" class="w-full p-fluid" />
+            </div>
+        </div>
+    </form>
+
+    <div class="flex justify-content-end">
+        <p-button label="CLOSE" [text]="true" severity="danger" (click)="CloseOrderModal()"></p-button>
+        <p-button label="SAVE" [text]="true" severity="success" (click)="onSubmit()"></p-button>
+    </div>
+</div>
+</p-dialog>
